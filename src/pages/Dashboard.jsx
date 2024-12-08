@@ -54,8 +54,7 @@ function Dashboard() {
       <div
         className={`flex-1 min-h-screen mx-0 bg-slate-100 transition-all duration-300 ease-in-out ${
           sideMenuIsExpand ? "md:ml-72" : "md:ml-20"
-        }`}
-      >
+        }`}>
         <Navbar />
 
         <div className="flex min-h-screen p-8 bg-[#FEFAF6]">

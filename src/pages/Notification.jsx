@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NotificationManage from "../components/Notification/NotificationManage";
 import NotificationPage from "../components/Notification/NotificationPage";
 import CreateNotification from "../components/CreateNotification";
 import SuccessModal from "../components/SuccessModal";
+
 const Notification = () => {
   const [activeComponent, setActiveComponent] = useState("CreateNotification");
   const [showModal, setShowModal] = useState(false);

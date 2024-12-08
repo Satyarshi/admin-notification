@@ -5,7 +5,7 @@ const NotificationManage = ({ setActiveComponent }) => {
 
   const handleOptionClick = (option) => {
     setActiveOption(option);
-    setActiveComponent(option); // Set the active component in Dashboard
+    setActiveComponent(option);
   };
 
   return (
@@ -19,8 +19,7 @@ const NotificationManage = ({ setActiveComponent }) => {
             ? "border-l-[3px] border-l-blue-600 text-[#F5705E]"
             : "text-[#AEAEAE]"
         }`}
-        onClick={() => handleOptionClick("CreateNotification")}
-      >
+        onClick={() => handleOptionClick("CreateNotification")}>
         Create Notification
       </button>
       <button
@@ -29,8 +28,7 @@ const NotificationManage = ({ setActiveComponent }) => {
             ? "border-l-[3px] border-l-blue-600 text-[#F5705E]"
             : "text-[#AEAEAE]"
         }`}
-        onClick={() => handleOptionClick("ManageNotification")}
-      >
+        onClick={() => handleOptionClick("ManageNotification")}>
         Manage Notification
       </button>
     </div>
