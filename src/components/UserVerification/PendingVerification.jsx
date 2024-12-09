@@ -4,9 +4,12 @@ import addUser from "../../assets/add.svg";
 import filter from "../../assets/Filter.svg";
 import search from "../../assets/search.svg";
 import userIcon from "../../assets/notify.svg";
+import UserDetailForm from "./UserDetailForm";
 
 const PendingVerification = () => {
   const [activeTab, setActiveTab] = useState("Govt Officials");
+  const [selectedUser, setSelectedUser] = useState(null);
+  
 
   const users = [
     {
@@ -15,6 +18,11 @@ const PendingVerification = () => {
       designation: "Admin",
       status: "Pending",
       profilePic: "path/to/image",
+      phone: "+91 8373 23** **",
+      state: "Uttar Pradesh",
+      city: "Agra",
+      officeAddress: "Manauri jila kanpur dehat, UP.",
+      officeName: "Behariya",
     },
     {
       name: "Raman Sharms",
@@ -22,6 +30,11 @@ const PendingVerification = () => {
       designation: "Admin",
       status: "Pending",
       profilePic: "path/to/image2",
+      phone: "+91 8373 22** **",
+      state: "Madhya Pradesh",
+      city: "Bhopal",
+      officeAddress: "Bhopal main office",
+      officeName: "Bhopal",
     },
     {
       name: "Ram Gopal",
@@ -29,6 +42,11 @@ const PendingVerification = () => {
       designation: "Admin",
       status: "Pending",
       profilePic: "path/to/image3",
+      phone: "+91 8373 22** **",
+      state: "Madhya Pradesh",
+      city: "Bhopal",
+      officeAddress: "Bhopal main office",
+      officeName: "Bhopal",
     },
     {
       name: "Aprit Das Gopal",
@@ -36,6 +54,11 @@ const PendingVerification = () => {
       designation: "Member",
       status: "Pending",
       profilePic: "path/to/image4",
+      phone: "+91 8373 22** **",
+      state: "Madhya Pradesh",
+      city: "Bhopal",
+      officeAddress: "Bhopal main office",
+      officeName: "Bhopal",
     },
     {
       name: "Raghu Kishan",
@@ -43,6 +66,11 @@ const PendingVerification = () => {
       designation: "Member",
       status: "Pending",
       profilePic: "path/to/image5",
+      phone: "+91 8373 22** **",
+      state: "Madhya Pradesh",
+      city: "Bhopal",
+      officeAddress: "Bhopal main office",
+      officeName: "Bhopal",
     },
   ];
 
@@ -82,7 +110,9 @@ const PendingVerification = () => {
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2">
               <img src={userIcon} alt="Users" className="h-6 w-6" />
-              <span className="font-semibold text-[#191632] text-3xl">{users.length}</span>
+              <span className="font-semibold text-[#191632] text-3xl">
+                {users.length}
+              </span>
               <span className="text-lg text-[#89888E]">Users</span>
             </div>
 
@@ -94,7 +124,11 @@ const PendingVerification = () => {
                   placeholder="Search"
                   className="border rounded-md py-2 px-3 w-60"
                 />
-                <img src={search} alt="search" className="absolute right-2 top-2.5 h-5 w-5" />
+                <img
+                  src={search}
+                  alt="search"
+                  className="absolute right-2 top-2.5 h-5 w-5"
+                />
               </div>
               <button className="flex items-center text-[#89888E] border-2 border-gray-200 px-3 py-1 rounded-md">
                 <img src={filter} alt="filter" className="h-5 w-5 mr-2" />
@@ -110,8 +144,11 @@ const PendingVerification = () => {
           {/* Table Header */}
           <div className="flex justify-between items-center bg-[#F8F8F8] p-4 rounded-md shadow-sm w-full">
             <div className="flex items-center gap-4 w-full">
-              <input type="checkbox" className="form-checkbox h-5 w-5 text-red-500" />
-              <div className="w-full flex items-center gap-16">
+              <input
+                type="checkbox"
+                className="form-checkbox h-5 w-5 text-red-500"
+              />
+              <div className="w-full flex items-center gap-20">
                 <span className="text-[#89888E] text-sm w-48 flex items-center">
                   NAME <img src={sortIcon} alt="sort" className="ml-1" />
                 </span>
@@ -132,26 +169,50 @@ const PendingVerification = () => {
                 key={index}
                 className="flex justify-between items-center p-4 rounded-md w-full border-b-[1px] border-gray-200"
               >
-                <div className="flex items-center gap-4 w-full">
-                  <input type="checkbox" className="form-checkbox h-5 w-5 text-red-500" />
-                  <div className="flex items-center gap-4 w-full">
-                    <img src={user.profilePic} alt={user.name} className="h-10 w-10 rounded-full" />
-                    <span className="font-semibold text-sm w-44">{user.name}</span>
-                    <span className="text-sm font-semibold w-52">{user.designation}</span>
-                    <span className="text-sm text-red-500 font-semibold">{user.status}</span>
+                <div className="flex items-center w-full">
+                  <input
+                    type="checkbox"
+                    className="form-checkbox h-5 w-5 text-red-500"
+                  />
+                  <div className="flex items-center gap-8 w-full">
+                    <img
+                      src={user.profilePic}
+                      alt={user.name}
+                      className="h-10 w-10 rounded-full"
+                    />
+                    <span className="font-semibold text-sm w-44">
+                      {user.name}
+                    </span>
+                    <span className="text-sm font-semibold w-52">
+                      {user.designation}
+                    </span>
+                    <span className="text-sm text-red-500 font-semibold">
+                      {user.status}
+                    </span>
                   </div>
+                  <button
+                      className="text-blue-500 underline"
+                      onClick={() => setSelectedUser(user)}
+                    >
+                      view
+                    </button>
                 </div>
-                <button className="text-blue-500 underline">view</button>
               </div>
             ))}
           </div>
 
           {/* Export Button */}
           <div className="mt-6">
-            <button className="text-white bg-[#F5705E] px-4 py-2 rounded-md">Export</button>
+            <button className="text-white bg-[#F5705E] px-4 py-2 rounded-md">
+              Export
+            </button>
           </div>
         </div>
       </div>
+      <UserDetailForm
+        user={selectedUser}
+        onClose={() => setSelectedUser(null)}
+      />
     </div>
   );
 };
