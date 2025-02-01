@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import NotificationPage from "../components/Notification/NotificationPage";
-import CreateNotification from "../components/CreateNotification";
+import CreateNotification from "../components/Notification/CreateNotification";
 import NotificationManage from "../components/Notification/NotificationManage";
 import { Outlet, useNavigate } from "react-router-dom";
 import SuccessModal from "../components/SuccessModal";
@@ -58,7 +58,7 @@ function Dashboard() {
       >
         <Navbar />
 
-        <div className="flex min-h-screen p-8 bg-[#FEFAF6]">
+        <div className="flex min-h-full p-8 bg-[#FEFAF6]">
           <div className="flex min-h-full flex-1 flex-col justify-center px-20 py-12 lg:px-[2rem] items-center lg:pl-0">
             <div className="flex min-h-full gap-10">
               <div className="mt-10 sm:mx-auto sm:w-full flex gap-5">

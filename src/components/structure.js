@@ -5,7 +5,7 @@ const sidebarStructure = [
     name: "notification",
     parent: true,
     icon: "dasbor",
-    link: "/admin/notification",
+    link: "/admin",
   },
   {
     id: "cycle mng",

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html,body{
+  background-color: #FEFAF6;
+}
 .or-gradient {
   background: rgb(241, 76, 31);
   background: -moz-linear-gradient(
@@ -165,6 +168,7 @@ body {
   align-items: center;
   gap: 5px;
 }
+
 @media (max-width: 1305px) {
   .notify {
     min-height: 13rem;
@@ -172,4 +176,23 @@ body {
   .cycle {
     min-height: 11rem;
   }
+}
+
+/* CSS for transitions */
+.component-container .fade-enter {
+  opacity: 0;
+}
+
+.component-container .fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.component-container .fade-exit {
+  opacity: 1;
+}
+
+.component-container .fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }

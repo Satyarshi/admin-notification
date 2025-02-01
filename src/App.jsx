@@ -14,14 +14,16 @@ const App = () => {
   return (
     <>
       <Routes>
+        {/* Default page is Verify */}
         <Route path="/" element={<Verify />} />
+        
+        {/* Admin Dashboard Route */}
         <Route path="/admin" element={<Dashboard />}>
-          <Route path="notification" element={<Notification />} />
+          <Route index element={<Notification />} />
           <Route path="cycle" element={<Cycle />} />
           <Route path="database" element={<Database />} />
           <Route path="user-verification" element={<UserVerification />} />
         </Route>
-
       </Routes>
       <ToastContainer />
     </>

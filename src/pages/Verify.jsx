@@ -39,7 +39,7 @@ const Verify = () => {
 
     try {
       console.log("Submitting verification code:", verificationCode);
-      navigate("/admin/notification"); // Navigate to the Notification page
+      navigate("/admin"); // Navigate to the Notification page
     } catch (error) {
       console.error("Verification failed:", error);
       toast.error("An error occurred. Please try again later.");
