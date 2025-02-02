@@ -39,7 +39,7 @@ const Notification = () => {
         </CSSTransition>
       </div>
 
-      <SuccessModal showModal={showModal} onClose={closeModal} />
+      <SuccessModal showModal={showModal} onClose={closeModal} title={"Notification Sent Successfully"} description={"Your message has been sent successfully to the user"}/>
     </>
   );
 };

@@ -1,16 +1,39 @@
 import React, { useState } from "react";
 
 const AddCycle = ({ showSuccessModal }) => {
+  const [formData, setFormData] = useState({
+    applicationStartDate: "",
+    applicationEndDate: "",
+    panchayatReportDate: "",
+    officialReportDate: "",
+    title: "",
+    description: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
   const handleSendClick = (e) => {
     e.preventDefault();
     showSuccessModal();
+    setFormData({
+      applicationStartDate: "",
+      applicationEndDate: "",
+      panchayatReportDate: "",
+      officialReportDate: "",
+      title: "",
+      description: "",
+    });
   };
 
   return (
     <>
       <form>
         {/* Form Container */}
-        <div className="w-[52vw] rounded-xl border-[#EDEDED] border-2 bg-white">
+        <div className="w-full md:w-[72vw] xl:w-[52vw] rounded-xl border-[#EDEDED] border-2 bg-white">
           {/* Add New Cycle Title */}
           <p className="text-2xl font-bold m-4 pl-4">Add New Cycle</p>
 
@@ -32,8 +55,9 @@ const AddCycle = ({ showSuccessModal }) => {
                 <input
                   type="text"
                   name="applicationStartDate"
+                  value={formData.applicationStartDate}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset"
-                  
                 />
               </div>
               <div>
@@ -43,8 +67,9 @@ const AddCycle = ({ showSuccessModal }) => {
                 <input
                   type="text"
                   name="applicationEndDate"
+                  value={formData.applicationEndDate}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset"
-                  
                 />
               </div>
             </div>
@@ -58,8 +83,9 @@ const AddCycle = ({ showSuccessModal }) => {
                 <input
                   type="text"
                   name="panchayatReportDate"
+                  value={formData.panchayatReportDate}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset"
-                  
                 />
               </div>
               <div>
@@ -69,22 +95,11 @@ const AddCycle = ({ showSuccessModal }) => {
                 <input
                   type="text"
                   name="officialReportDate"
+                  value={formData.officialReportDate}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset"
-                  
                 />
               </div>
-            </div>
-
-            {/* Cycle Code */}
-            <div className="mb-6">
-              <label className="block text-sm font-medium leading-6 text-gray-900">
-                Cycle Code
-              </label>
-              <input
-                type="text"
-                name="cycleCode"
-                className="block w-[50%] rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset"
-                              />
             </div>
 
             {/* Additional Information */}
@@ -98,8 +113,9 @@ const AddCycle = ({ showSuccessModal }) => {
               <input
                 type="text"
                 name="title"
+                value={formData.title}
+                onChange={handleChange}
                 className="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset"
-                
               />
             </div>
 
@@ -110,8 +126,9 @@ const AddCycle = ({ showSuccessModal }) => {
               </label>
               <textarea
                 name="description"
+                value={formData.description}
+                onChange={handleChange}
                 className="block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset"
-                
               ></textarea>
             </div>
 

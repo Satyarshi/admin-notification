@@ -2,8 +2,8 @@ import React from "react";
 import image1 from "../assets/success.svg";
 import image2 from "../assets/soach.png";
 
-const SuccessModal = ({ showModal, onClose }) => {
-  if (!showModal) return null; // Don't render if showModal is false
+const SuccessModal = ({ showModal, onClose, title, description }) => {
+  if (!showModal) return null; 
 
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
@@ -16,12 +16,12 @@ const SuccessModal = ({ showModal, onClose }) => {
 
           {/* Title */}
           <h2 className="text-2xl font-semibold text-[#26203B] mb-2">
-            Notification Sent Successfully
+            {title}
           </h2>
 
           {/* Description */}
           <p className="text-[#9C9AA5] mb-6">
-            Your message has been sent successfully to the user.
+            {description}
           </p>
 
           {/* Close Button */}

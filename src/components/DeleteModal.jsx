@@ -1,14 +1,14 @@
 import React from 'react'
 
-const DeleteCycle = ({ show, onClose, onConfirm }) => {
+const DeleteModal = ({ show, onClose, onConfirm, title, description }) => {
     if (!show) return null;
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded-md w-[600px] shadow-lg">
-        <h2 className="text-xl font-semibold mb-4">Delete Cycle</h2>
+        <h2 className="text-xl font-semibold mb-4">{title}</h2>
         <hr />
-        <p className="mb-20 mt-5">
-          Are you sure that you want to delete this cycle? This cannot be undone.
+        <p className="mb-20 mt-3">
+          {description}
         </p>
         <div className="flex justify-end gap-4">
           <button
@@ -29,4 +29,4 @@ const DeleteCycle = ({ show, onClose, onConfirm }) => {
   )
 }
 
-export default DeleteCycle
+export default DeleteModal
